@@ -453,7 +453,7 @@ FlexOverlay(
 ### FlexOverlay
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+|:----------|:-----|:--------|:------------|
 | `child` | `Widget Function(bool isActive)` | **required** | Builder for trigger widget that receives active state. Ignore the parameter if you don't need it. |
 | `content` | `Widget` | **required** | The popup content to display |
 | `positionConfig` | `PositionConfig` | `PositionConfig.top()` | Position configuration |
@@ -463,7 +463,7 @@ FlexOverlay(
 ### PositionConfig
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+|:----------|:-----|:--------|:------------|
 | `targetAlignment` | `Alignment` | **required** | Point on trigger widget |
 | `followerAlignment` | `Alignment` | **required** | Point on popup widget |
 | `gap` | `double` | `8.0` | Space between trigger and popup |
@@ -475,7 +475,7 @@ FlexOverlay(
 ### InteractionConfig
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+|:----------|:-----|:--------|:------------|
 | `mode` | `InteractionMode` | `InteractionMode.click` | Click or hover interaction |
 | `hoverShowDelay` | `Duration` | `120ms` | Delay before showing on hover |
 | `hoverHideDelay` | `Duration` | `120ms` | Delay before hiding after hover exit |
@@ -484,7 +484,7 @@ FlexOverlay(
 ### FlexOverlayScope
 
 | Parameter | Type | Description |
-|-----------|------|-------------|
+|:----------|:-----|:------------|
 | `child` | `Widget` | Widget tree defining the constrained region |
 
 ## Tips & Best Practices
