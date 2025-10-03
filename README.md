@@ -16,7 +16,7 @@
     <img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License: MIT">
   </a>
   <a href="https://dart.dev/">
-    <img src="https://img.shields.io/badge/dart-3.8.1%2B-blue.svg" alt="Dart Version">
+    <img src="https://img.shields.io/badge/dart-3.8.0%2B-blue.svg" alt="Dart Version">
   </a>
   <img src="https://img.shields.io/badge/platform-flutter%20|%20web%20|%20mobile%20|%20desktop-blue.svg" alt="Platform Support">
   <a href="https://github.com/vento007/flex_overlay/issues">
@@ -55,22 +55,11 @@
   <img src="https://raw.githubusercontent.com/vento007/flex_overlay/main/media/example-app.png" alt="FlexOverlay Example App" width="800" />
 </p>
 
-## Getting Started
-
-Add to your `pubspec.yaml`:
-
-```yaml
-dependencies:
-  flex_overlay: ^0.0.1
-```
-
-Import:
+## Quick Start
 
 ```dart
 import 'package:flex_overlay/flex_overlay.dart';
 ```
-
-## Quick Start
 
 ### Minimal Example
 
