@@ -49,6 +49,26 @@
 - **Auto-Hide** - Optional timeout for automatic dismissal  
 - **Zero Dependencies** - Pure Flutter, no extra packages
 
+## What Makes FlexOverlay Special?
+
+Unlike basic tooltip libraries, FlexOverlay includes **intelligent positioning** that handles edge cases automatically:
+
+**Smart Fallback System**
+Try to show a tooltip on top, but the trigger is near the screen edge? FlexOverlay automatically tries alternative positions:
+1. Preferred position (e.g., top)
+2. Opposite direction (e.g., bottom)
+3. Perpendicular alternatives (e.g., left, right)
+4. Uses the best fit without manual intervention
+
+**Overlap Prevention**
+Popups never cover the trigger widget. This is especially important for hover interactions where covering the trigger would cause flickering or break the interaction.
+
+**Edge Detection**
+Automatically keeps popups within screen bounds with configurable margins. No popups cut off by screen edges or extending beyond the viewport.
+
+**All Without Imposed Styling**
+You get smart positioning while maintaining 100% control over appearance. FlexOverlay handles the "where" so you can focus on the "what."
+
 ## Demo
 
 <p align="center">
