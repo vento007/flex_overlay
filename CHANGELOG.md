@@ -1,3 +1,9 @@
+## 0.6.1
+
+### Improved
+
+* **Click Response** - Replaced `onTap` with `onTapDown` for instant tooltip response without double-tap detection delay
+
 ## 0.6.0
 
 ### Fixed

@@ -137,8 +137,8 @@ class _FlexOverlayState extends State<FlexOverlay> with WidgetsBindingObserver {
       onEnter: (_) => _interactionController.onTriggerEnter(),
       onExit: (_) => _interactionController.onTriggerExit(),
       child: GestureDetector(
-        onTap: widget.interactionConfig.mode == InteractionMode.click
-            ? _interactionController.onTriggerTap
+        onTapDown: widget.interactionConfig.mode == InteractionMode.click
+            ? (_) => _interactionController.onTriggerTap()
             : null,
         child: trigger,
       ),
