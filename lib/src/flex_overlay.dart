@@ -233,7 +233,16 @@ class _PositionedPopupState extends State<_PositionedPopup> {
 
   @override
   Widget build(BuildContext context) {
-    // First frame: measure the popup
+    final overlaySize = widget.layoutInfo.overlaySize;
+
+    // Use overlay bounds as measurement constraints
+    // This prevents issues with unbounded intrinsic sizes from scrollables/flex
+    final measureConstraints = BoxConstraints(
+      maxWidth: overlaySize.width,
+      maxHeight: overlaySize.height,
+    );
+
+    // First frame: measure the popup with finite constraints
     if (_measuredSize == null) {
       return Positioned(
         left: 0,
@@ -243,10 +252,9 @@ class _PositionedPopupState extends State<_PositionedPopup> {
           child: IgnorePointer(
             child: Material(
               color: Colors.transparent,
-              child: IntrinsicWidth(
-                child: IntrinsicHeight(
-                  child: Container(key: _measureKey, child: widget.content),
-                ),
+              child: ConstrainedBox(
+                constraints: measureConstraints,
+                child: Container(key: _measureKey, child: widget.content),
               ),
             ),
           ),
@@ -257,7 +265,6 @@ class _PositionedPopupState extends State<_PositionedPopup> {
     // Extract layout info from the new API
     final childSize = widget.layoutInfo.childSize;
     final childTransform = widget.layoutInfo.childPaintTransform;
-    final overlaySize = widget.layoutInfo.overlaySize;
 
     // Transform the child's origin (0,0) to overlay coordinates
     final childOriginInOverlay = MatrixUtils.transformPoint(
@@ -283,12 +290,18 @@ class _PositionedPopupState extends State<_PositionedPopup> {
       config: widget.positionConfig,
     );
 
+    // Apply the same constraints during final render to match measurement
+    final popupContent = ConstrainedBox(
+      constraints: measureConstraints,
+      child: widget.content,
+    );
+
     // Build popup with interaction handlers and size change detection
     Widget popup = Material(
       color: Colors.transparent,
       child: _SizeChangeNotifier(
         onSizeChanged: _onSizeChanged,
-        child: widget.content,
+        child: popupContent,
       ),
     );
 
