@@ -1,3 +1,9 @@
+## 0.6.0
+
+### Fixed
+
+* **Scrollable Content Support** - Fixed `RenderBox was not laid out` errors when popup content contains `Flexible` + `SingleChildScrollView` or other widgets with unbounded intrinsic sizes. Replaced intrinsic measurement with constrained measurement using overlay bounds. (Fixes #1)
+
 ## 0.5.0
 
 Initial release of FlexOverlay - a pure positioning system for Flutter popups and tooltips.
