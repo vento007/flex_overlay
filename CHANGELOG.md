@@ -1,3 +1,9 @@
+## 0.6.1+2
+
+### Fixed
+
+* **Click Propagation** - Prevent clicks from propagating to parent widgets (e.g., table rows) by combining `Listener` with `GestureDetector` to win gesture arena
+
 ## 0.6.1+1
 
 ### Improved

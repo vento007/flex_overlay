@@ -139,12 +139,16 @@ class _FlexOverlayState extends State<FlexOverlay> with WidgetsBindingObserver {
       child: trigger,
     );
 
-    // Add click handling with instant response via raw pointer events
+    // Add click handling - use both Listener AND GestureDetector to block parent gestures
     if (widget.interactionConfig.mode == InteractionMode.click) {
-      trigger = Listener(
-        onPointerDown: (_) => _interactionController.onTriggerTap(),
+      trigger = GestureDetector(
         behavior: HitTestBehavior.opaque,
-        child: trigger,
+        onTap: () {}, // Dummy onTap to win gesture arena against parent
+        child: Listener(
+          onPointerDown: (_) => _interactionController.onTriggerTap(),
+          behavior: HitTestBehavior.opaque,
+          child: trigger,
+        ),
       );
     }
 
