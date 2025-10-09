@@ -1,8 +1,14 @@
+## 0.6.1+1
+
+### Improved
+
+* **Click Response** - Use `Listener.onPointerDown` instead of `GestureDetector` for instant click response with raw pointer events
+
 ## 0.6.1
 
 ### Improved
 
-* **Click Response** - Replaced `onTap` with `onTapDown` for instant tooltip response without double-tap detection delay
+* **Click Response** - Replaced `onTap` with `onTapDown` for faster tooltip response
 
 ## 0.6.0
 

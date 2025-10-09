@@ -136,13 +136,17 @@ class _FlexOverlayState extends State<FlexOverlay> with WidgetsBindingObserver {
     trigger = MouseRegion(
       onEnter: (_) => _interactionController.onTriggerEnter(),
       onExit: (_) => _interactionController.onTriggerExit(),
-      child: GestureDetector(
-        onTapDown: widget.interactionConfig.mode == InteractionMode.click
-            ? (_) => _interactionController.onTriggerTap()
-            : null,
-        child: trigger,
-      ),
+      child: trigger,
     );
+
+    // Add click handling with instant response via raw pointer events
+    if (widget.interactionConfig.mode == InteractionMode.click) {
+      trigger = Listener(
+        onPointerDown: (_) => _interactionController.onTriggerTap(),
+        behavior: HitTestBehavior.opaque,
+        child: trigger,
+      );
+    }
 
     return trigger;
   }
